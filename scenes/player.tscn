@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://br4a8jdncrv1y"]
+[gd_scene load_steps=7 format=3 uid="uid://br4a8jdncrv1y"]
 
 [ext_resource type="Script" uid="uid://chvi4ipnuql2y" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://mxlu4aqxukrw" path="res://scenes/Gun.tscn" id="2_g2els"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vyb7"]
 albedo_color = Color(0.629055, 0.000152286, 0.578766, 1)
@@ -30,6 +31,9 @@ disabled = true
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Gun" parent="Head" instance=ExtResource("2_g2els")]
+transform = Transform3D(-0.777001, 0, -0.0180668, 0, 0.777211, 0, 0.0180668, 0, -0.777001, 0.395919, -0.563129, -0.949694)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 

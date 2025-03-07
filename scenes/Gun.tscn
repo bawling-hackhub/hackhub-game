@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://mxlu4aqxukrw"]
+
+[ext_resource type="Script" uid="uid://dxbc1r7ypbnbg" path="res://scripts/gun.gd" id="1_h5px7"]
+[ext_resource type="ArrayMesh" uid="uid://crdlkujtj5qtx" path="res://assets/GodotFPS-Assets/Pistol Beretta/Pistol_Model.obj" id="2_h5px7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5px7"]
+albedo_color = Color(0.468128, 0.468128, 0.468128, 1)
+metallic = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljf13"]
+albedo_color = Color(0.385493, 0.385492, 0.385492, 1)
+metallic = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qre0h"]
+albedo_color = Color(0.376028, 0.376028, 0.376028, 1)
+metallic = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqiuh"]
+albedo_color = Color(0.368479, 0.368479, 0.368479, 1)
+metallic = 0.6
+
+[node name="Gun" type="Node3D"]
+script = ExtResource("1_h5px7")
+
+[node name="Muzzle" type="Node3D" parent="."]
+transform = Transform3D(0.220158, 0, 0, 0, 0.170716, 0, 0, 0, 0.220158, -0.00872388, 0.340476, 0.68324)
+
+[node name="Beretta Pistol" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.180029, 0, 0, 0, 0.180029, 0, 0, 0, 0.180029, 0, 0, 0)
+mesh = ExtResource("2_h5px7")
+surface_material_override/0 = SubResource("StandardMaterial3D_h5px7")
+surface_material_override/1 = SubResource("StandardMaterial3D_ljf13")
+surface_material_override/2 = SubResource("StandardMaterial3D_qre0h")
+surface_material_override/3 = SubResource("StandardMaterial3D_iqiuh")
