@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsm0g2iws6dkx"]
+
+[ext_resource type="Script" uid="uid://ckcn10ws6806i" path="res://scripts/enemy.gd" id="1_7p1mj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p1mj"]
+albedo_color = Color(0.996078, 0, 0.0313726, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_md0e3"]
+material = SubResource("StandardMaterial3D_7p1mj")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ra3w"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["enemies"]]
+script = ExtResource("1_7p1mj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_md0e3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4ra3w")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+radius = 1.0
+
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

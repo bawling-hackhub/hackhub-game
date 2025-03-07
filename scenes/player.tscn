@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://chvi4ipnuql2y" path="res://scripts/player.gd" id="1_3vyb7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vyb7"]
-albedo_color = Color(0.551558, 0.302848, 0.100231, 1)
+albedo_color = Color(0.629055, 0.000152286, 0.578766, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
 material = SubResource("StandardMaterial3D_3vyb7")
@@ -17,7 +17,6 @@ height = 1.0
 script = ExtResource("1_3vyb7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_g2els")
 
