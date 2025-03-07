@@ -10,6 +10,7 @@ const LERP_SPEED := 10.0
 @onready var head = $Head
 @onready var standing_collision_shape = $StandCollisionShape
 @onready var crouching_collision_shape = $CrouchCollisionShape
+@onready var raycast = $RayCast3D
 
 var current_speed := 3.0
 var direction := Vector3.ZERO
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		head.position.y = lerp(head.position.y, 0.8 + CROUCHING_DEPTH, LERP_SPEED * delta);
 		crouching_collision_shape.disabled = false
 		standing_collision_shape.disabled = true
-	else: 
+	elif !raycast.is_colliding(): 
 		crouching_collision_shape.disabled = true
 		standing_collision_shape.disabled = false
 		head.position.y = lerp(head.position.y, 0.8, LERP_SPEED * delta);
