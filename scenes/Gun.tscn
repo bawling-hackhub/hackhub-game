@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://mxlu4aqxukrw"]
+
+[ext_resource type="PackedScene" uid="uid://b1xlxvsw7rxli" path="res://assets/GodotFPS-Assets/Models/Weapon/Beretta Pistol.fbx" id="1_gp53h"]
+[ext_resource type="Script" uid="uid://88pdqelr8mq5" path="res://scripts/gun.gd" id="1_h5px7"]
+
+[node name="Gun" type="Node3D"]
+script = ExtResource("1_h5px7")
+
+[node name="Beretta Pistol" parent="." instance=ExtResource("1_gp53h")]
+transform = Transform3D(0.220158, 0, 0, 0, 0.220158, 0, 0, 0, 0.220158, 0, 0, 0)
+
+[node name="Muzzle" type="Node3D" parent="Beretta Pistol"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 1.69649, 3.6497)

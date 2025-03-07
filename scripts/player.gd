@@ -4,12 +4,13 @@ const SPRINT_SPEED := 6.0
 const WALK_SPEED := 4.0
 const CROUCH_SPEED := 2.0
 const JUMP_VELOCITY := 4.5
-const MOUSE_SENS := 0.2
+const MOUSE_SENS := 0.1
 const LERP_SPEED := 10.0
 
 @onready var head = $Head
 @onready var standing_collision_shape = $StandCollisionShape
 @onready var crouching_collision_shape = $CrouchCollisionShape
+
 
 var current_speed := 3.0
 var direction := Vector3.ZERO
@@ -55,5 +56,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
-
+	
+	
 	move_and_slide()
