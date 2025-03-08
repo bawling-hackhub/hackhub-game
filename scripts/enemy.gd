@@ -4,9 +4,13 @@ extends CharacterBody3D
 @onready var body_mesh = $MeshInstance3D # Enemy body mesh
 @onready var original_material = body_mesh.get_surface_override_material(0)
 
+@onready var animation_player = $AnimationPlayer
+@onready var audio_player = $"../AudioStreamPlayer"
+
 const SPEED = 3.0
 var health := 3
 var damage_color := preload("res://dark_red_material.tres")
+var enemy_scene = preload("res://scenes/enemy.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Move the enemy toward the player
@@ -47,4 +51,25 @@ func flash_damage():
 	body_mesh.material_override = null  # Resets back to normal
 
 func die():
+	# Capture the position of the enemy BEFORE removing it
+	var death_position = global_position
+	
+	# Spawn 2 new enemies instantly
+	for i in range(2):
+		var new_enemy = enemy_scene.instantiate()
+		new_enemy.global_position = death_position + Vector3(randf_range(-2, 2), 0, randf_range(-2, 2))
+		get_parent().add_child(new_enemy)
+		new_enemy.sync_animation_with_song(audio_player)
+
+	# Now safely remove this enemy
 	queue_free()
+
+
+
+func sync_animation_with_song(audio_stream):
+	# 🔥 Get the current song time in seconds
+	var song_time = audio_stream.get_playback_position()
+	
+	# 🔥 Play the animation and sync it to the exact time of the song
+	animation_player.play("Blink")
+	animation_player.seek(song_time)

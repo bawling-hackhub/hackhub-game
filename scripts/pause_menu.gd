@@ -22,6 +22,7 @@ func _on_resume_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Autoscript.score = 0
 	get_tree().paused = false
 	get_tree().reload_current_scene()
 

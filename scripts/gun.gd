@@ -1,16 +1,30 @@
 extends Node3D
-var ammo:= 500
+var ammo:= 6
 
 @onready var muzzle = $"Muzzle"
 @onready var bulletScene = preload("res://scenes/Bullet.tscn")
 @onready var animation_player = $AnimationPlayer 
+@onready var ammotext = $"../Camera3D/Ammo"
+
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot") and ammo>0:
+	if Input.is_action_just_pressed("shoot") and ammo > 0 and not animation_player.is_playing():
 		shoot()
+		ammotext.text = str(Autoscript.ammo) + " / ∞"
 		
-	
+	if (Input.is_action_just_pressed("reload") or ammo <= 0) and not animation_player.is_playing() and ammo!=6:
+		animation_player.play("reload")
 		
+		# Automatically trigger a reload when animation is done
+		animation_player.animation_finished.connect(_on_reload_finished, CONNECT_ONE_SHOT)
+		
+func _on_reload_finished(anim_name):
+	if anim_name == "reload":
+		Autoscript.ammo = 6;
+		ammotext.text = str(Autoscript.ammo) + " / ∞"
+		ammo = 6 # Refill ammo after reload
+		animation_player.stop()
+
 func shoot():
 	# Instantiate the bullet
 	var bullet = bulletScene.instantiate()
@@ -22,6 +36,8 @@ func shoot():
 
 	# Reduce ammo
 	ammo -= 1
+	Autoscript.ammo -= 1
+	
 
 	# Stop any running animation first
 	animation_player.stop()
@@ -35,7 +51,6 @@ func shoot():
 
 	# 🧠 Reset the gun's transform after the recoil
 	muzzle.global_transform = $Muzzle.global_transform
-
 
 
 	

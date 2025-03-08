@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxo3hgu53dv1s"]
+[gd_scene load_steps=11 format=3 uid="uid://wdog8dcyqgg5"]
 
 [ext_resource type="Texture2D" uid="uid://dmyne83kmvqks" path="res://assets/hdris/kloofendal_48d_partly_cloudy_puresky_2k.hdr" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://br4a8jdncrv1y" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://jqqxomkxodbl" path="res://scenes/level.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bsm0g2iws6dkx" path="res://scenes/enemy.tscn" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://ckuhpvo2gc6j7" path="res://assets/Doom Eternal OST - The Only Thing They Fear Is You (Mick Gordon) [Doom Eternal Theme].wav" id="5_tefeu"]
-[ext_resource type="PackedScene" uid="uid://fj25sdki8c0d" path="res://scenes/pauseMenu.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://lnkcu361ilna" path="res://scenes/pauseMenu.tscn" id="6_tefeu"]
 
 [sub_resource type="GDScript" id="GDScript_jyhfs"]
 script/source = "extends Node3D
