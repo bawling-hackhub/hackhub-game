@@ -6,6 +6,7 @@ extends CharacterBody3D
 
 @onready var animation_player = $AnimationPlayer
 @onready var audio_player = $"../AudioStreamPlayer"
+@onready var death_sound = $AudioStreamPlayer3D
 
 const SPEED = 3.0
 var health := 3
@@ -62,6 +63,9 @@ func die():
 		new_enemy.sync_animation_with_song(audio_player)
 
 	# Now safely remove this enemy
+	
+	death_sound.play()
+	await death_sound.finished
 	queue_free()
 
 

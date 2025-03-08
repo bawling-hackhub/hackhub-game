@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://mxlu4aqxukrw"]
+[gd_scene load_steps=12 format=3 uid="uid://mxlu4aqxukrw"]
 
 [ext_resource type="Script" uid="uid://dxbc1r7ypbnbg" path="res://scripts/gun.gd" id="1_h5px7"]
 [ext_resource type="ArrayMesh" uid="uid://crdlkujtj5qtx" path="res://assets/GodotFPS-Assets/Pistol Beretta/Pistol_Model.obj" id="2_h5px7"]
+[ext_resource type="AudioStream" uid="uid://dselevt8a711b" path="res://assets/sounds/shoot-5-102360.mp3" id="3_ljf13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5px7"]
 albedo_color = Color(0.468128, 0.468128, 0.468128, 1)
@@ -128,3 +129,6 @@ surface_material_override/3 = SubResource("StandardMaterial3D_iqiuh")
 libraries = {
 &"": SubResource("AnimationLibrary_qre0h")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ljf13")

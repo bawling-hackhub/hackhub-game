@@ -5,11 +5,12 @@ var ammo:= 6
 @onready var bulletScene = preload("res://scenes/Bullet.tscn")
 @onready var animation_player = $AnimationPlayer 
 @onready var ammotext = $"../Camera3D/Ammo"
-
+@onready var shoot_sound  = $AudioStreamPlayer3D
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and ammo > 0 and not animation_player.is_playing():
 		shoot()
+		shoot_sound.play()
 		ammotext.text = str(Autoscript.ammo) + " / ∞"
 		
 	if (Input.is_action_just_pressed("reload") or ammo <= 0) and not animation_player.is_playing() and ammo!=6:
