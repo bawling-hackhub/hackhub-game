@@ -5,9 +5,8 @@ extends CharacterBody3D
 @onready var original_material = body_mesh.get_surface_override_material(0)
 
 const SPEED = 3.0
-var health := 5
+var health := 3
 var damage_color := preload("res://dark_red_material.tres")
-var death_fade_speed := 1.5
 
 func _physics_process(delta: float) -> void:
 	# Move the enemy toward the player
@@ -47,14 +46,5 @@ func flash_damage():
 	body_mesh.material_override = null  # Resets back to normal
 
 func die():
-	# Enable transparency on the mesh
-	body_mesh.material_override = body_mesh.get_active_material(0).duplicate()
-	body_mesh.material_override.transparency = true
-	
-	# Fade the alpha channel of the mesh
-	var tween = get_tree().create_tween()
-	tween.tween_property(body_mesh.material_override, "albedo_color:a", 0.0, death_fade_speed)
-	
-	# Wait for fade to complete, then despawn
-	await tween.finished
+	# 💀💨 Instant Disappear - No fade, no shrink, just GONE.
 	queue_free()
