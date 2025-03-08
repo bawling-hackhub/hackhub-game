@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bsm0g2iws6dkx"]
+[gd_scene load_steps=35 format=3 uid="uid://bsm0g2iws6dkx"]
 
 [ext_resource type="Script" uid="uid://ckcn10ws6806i" path="res://scripts/enemy.gd" id="1_7p1mj"]
 [ext_resource type="ArrayMesh" uid="uid://dehfhbey6l4x0" path="res://assets/GodotFPS-Assets/Models/Octocat.obj" id="2_md0e3"]
@@ -128,9 +128,26 @@ tracks/0/keys = {
 "values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
 }
 
+[sub_resource type="Animation" id="Animation_5uy6h"]
+resource_name = "DOOM"
+length = 420.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.6, 1, 1.4, 1.735, 1.925, 2.3, 2.6, 2.9, 3.3, 3.8, 4.2, 4.67, 4.95, 5.22, 5.67, 6.1, 6.4, 6.55, 7, 7.27, 7.58, 8, 8.15, 8.46, 8.61, 8.87, 9.29, 9.614, 9.9, 10.17, 10.33, 10.77, 11.2, 11.64, 12.25, 12.75, 13.08, 13.57, 14.2, 14.8333, 15.4, 16.2, 16.88, 17.4667, 18.33, 20.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ra3w"]
 _data = {
 &"Blink": SubResource("Animation_7p1mj"),
+&"DOOM": SubResource("Animation_5uy6h"),
 &"RESET": SubResource("Animation_md0e3"),
 &"preface": SubResource("Animation_4ra3w")
 }
@@ -193,6 +210,6 @@ radius = 1.0
 libraries = {
 &"": SubResource("AnimationLibrary_4ra3w")
 }
-autoplay = "preface"
+autoplay = "DOOM"
 
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
