@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mxlu4aqxukrw"]
+[gd_scene load_steps=10 format=3 uid="uid://mxlu4aqxukrw"]
 
 [ext_resource type="Script" uid="uid://dxbc1r7ypbnbg" path="res://scripts/gun.gd" id="1_h5px7"]
 [ext_resource type="ArrayMesh" uid="uid://crdlkujtj5qtx" path="res://assets/GodotFPS-Assets/Pistol Beretta/Pistol_Model.obj" id="2_h5px7"]
@@ -19,16 +19,60 @@ metallic = 0.5
 albedo_color = Color(0.368479, 0.368479, 0.368479, 1)
 metallic = 0.6
 
+[sub_resource type="Animation" id="Animation_ljf13"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h5px7"]
+resource_name = "recoil"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(0.285262, 1, 0.00296039),
+"update": 0,
+"values": [Vector3(0, 3.14159, 0), Vector3(-0.349066, 3.14159, 0), Vector3(0, 3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qre0h"]
+_data = {
+&"RESET": SubResource("Animation_ljf13"),
+&"recoil": SubResource("Animation_h5px7")
+}
+
 [node name="Gun" type="Node3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_h5px7")
 
 [node name="Muzzle" type="Node3D" parent="."]
 transform = Transform3D(0.220158, 0, 0, 0, 0.170716, 0, 0, 0, 0.220158, -0.00872388, 0.340476, 0.68324)
 
 [node name="Beretta Pistol" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.180029, 0, 0, 0, 0.180029, 0, 0, 0, 0.180029, 0, 0, 0)
+transform = Transform3D(0.180029, -2.22045e-16, -1.77636e-15, 1.25465e-16, 0.180029, 9.31323e-10, -3.55271e-15, 4.65661e-10, 0.180029, 0, 0, 0)
 mesh = ExtResource("2_h5px7")
 surface_material_override/0 = SubResource("StandardMaterial3D_h5px7")
 surface_material_override/1 = SubResource("StandardMaterial3D_ljf13")
 surface_material_override/2 = SubResource("StandardMaterial3D_qre0h")
 surface_material_override/3 = SubResource("StandardMaterial3D_iqiuh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qre0h")
+}

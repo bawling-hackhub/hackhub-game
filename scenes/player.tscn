@@ -33,7 +33,7 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="Gun" parent="Head" instance=ExtResource("2_g2els")]
-transform = Transform3D(-0.777001, 0, -0.0180668, 0, 0.777211, 0, 0.0180668, 0, -0.777001, 0.395919, -0.563129, -0.949694)
+transform = Transform3D(-0.777211, 0, -6.7946e-08, 0, 0.777211, 0, 6.79459e-08, 0, -0.777212, 0.395919, -0.563129, -0.949694)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
