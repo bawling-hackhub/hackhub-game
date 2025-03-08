@@ -65,7 +65,7 @@ script = ExtResource("1_h5px7")
 transform = Transform3D(0.220158, 0, 0, 0, 0.170716, 0, 0, 0, 0.220158, -0.00872388, 0.340476, 0.68324)
 
 [node name="Beretta Pistol" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.180029, -2.22045e-16, -1.77636e-15, 1.25465e-16, 0.180029, 9.31323e-10, -3.55271e-15, 4.65661e-10, 0.180029, 0, 0, 0)
+transform = Transform3D(0.180029, -1.25465e-16, 3.55271e-15, 1.25465e-16, 0.180029, -4.65661e-10, -3.55271e-15, 4.65661e-10, 0.180029, 0, 0, 0)
 mesh = ExtResource("2_h5px7")
 surface_material_override/0 = SubResource("StandardMaterial3D_h5px7")
 surface_material_override/1 = SubResource("StandardMaterial3D_ljf13")
