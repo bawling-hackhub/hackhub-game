@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jqqxomkxodbl" path="res://scenes/level.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bsm0g2iws6dkx" path="res://scenes/enemy.tscn" id="4_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://ble46ns4ftajc" path="res://assets/song.mp3" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://fj25sdki8c0d" path="res://scenes/pauseMenu.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://lnkcu361ilna" path="res://scenes/pauseMenu.tscn" id="6_tefeu"]
 
 [sub_resource type="GDScript" id="GDScript_jyhfs"]
 script/source = "extends Node3D

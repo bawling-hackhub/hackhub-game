@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mxlu4aqxukrw"]
+[gd_scene load_steps=11 format=3 uid="uid://mxlu4aqxukrw"]
 
 [ext_resource type="Script" uid="uid://dxbc1r7ypbnbg" path="res://scripts/gun.gd" id="1_h5px7"]
 [ext_resource type="ArrayMesh" uid="uid://crdlkujtj5qtx" path="res://assets/GodotFPS-Assets/Pistol Beretta/Pistol_Model.obj" id="2_h5px7"]
@@ -33,6 +33,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 3.14159, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Beretta Pistol:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Beretta Pistol:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.58659e-09, 1.97341e-14, 6.96915e-16)]
+}
 
 [sub_resource type="Animation" id="Animation_h5px7"]
 resource_name = "recoil"
@@ -51,10 +75,38 @@ tracks/0/keys = {
 "values": [Vector3(0, 3.14159, 0), Vector3(-0.349066, 3.14159, 0), Vector3(0, 3.14159, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_qre0h"]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Beretta Pistol:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.658167, 0.860501, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -0.2, 0), Vector3(0, 0.1, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Beretta Pistol:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.499031, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(2.58659e-09, 1.97341e-14, 6.96915e-16), Vector3(0.471239, 0, 0.872665), Vector3(2.58659e-09, 1.97341e-14, 6.96915e-16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qre0h"]
 _data = {
 &"RESET": SubResource("Animation_ljf13"),
-&"recoil": SubResource("Animation_h5px7")
+&"recoil": SubResource("Animation_h5px7"),
+&"reload": SubResource("Animation_qre0h")
 }
 
 [node name="Gun" type="Node3D"]
