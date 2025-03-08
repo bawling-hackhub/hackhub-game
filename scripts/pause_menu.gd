@@ -1,21 +1,29 @@
 extends Control
 
-signal resume_game
-signal reset_game
-signal quit_game
+func resume():
+	get_tree().paused = false
+	$".".set_visible(false);
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func pause():
+	get_tree().paused = true
+	$".".set_visible(true);
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ESC"):
+		if !get_tree().paused:
+			pause()
+		else:
+			resume()
 
-func _ready():
-	hide()  # Hide the menu when the game starts
-	# Make sure these paths match your actual node structure
-	$Panel/Resume.connect("pressed", Callable(self, "_on_resume_pressed"))
-	$Panel/Reset.connect("pressed", Callable(self, "_on_reset_pressed"))
-	$Panel/Quit.connect("pressed", Callable(self, "_on_quit_pressed"))
+func _on_resume_pressed() -> void:
+	resume()
 
-func _on_resume_pressed():
-	emit_signal("resume_game")
+func _on_restart_pressed() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	get_tree().paused = false
+	get_tree().reload_current_scene()
 
-func _on_reset_pressed():
-	emit_signal("reset_game")
-
-func _on_quit_pressed():
-	emit_signal("quit_game")
+func _on_quit_pressed() -> void:
+	get_tree().quit()
