@@ -58,7 +58,7 @@ _data = {
 }
 
 [node name="Gun" type="Node3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, 2.53518e-06, 0, 1, 0, -2.53518e-06, 0, -1, 0, 0, 0)
 script = ExtResource("1_h5px7")
 
 [node name="Muzzle" type="Node3D" parent="."]
