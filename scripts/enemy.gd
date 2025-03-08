@@ -7,15 +7,21 @@ extends CharacterBody3D
 const SPEED = 3.0
 var health := 5
 var damage_color := preload("res://dark_red_material.tres")
+var death_fade_speed := 1.5
 
 func _physics_process(delta: float) -> void:
+	# Move the enemy toward the player
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()
 	var new_velocity = (next_location - current_location).normalized() * SPEED
 	nav_agent.set_velocity(new_velocity)
 	
+	# 💀🔥 FIX: Only rotate if the enemy is far enough from the target
+	if current_location.distance_to(next_location) > 0.1:
+		look_at(Vector3(next_location.x, global_position.y, next_location.z))
+		rotate_y(deg_to_rad(180)) # Corrects the backwards mesh
+
 func update_target_location(target_location):
-	# This will make the enemy continuously chase the player
 	nav_agent.target_position = target_location
 	
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
@@ -25,7 +31,7 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 func take_damage(damage: int):
 	health -= damage
 	
-	# Flash red when hit
+	# Flash dark red when hit
 	flash_damage()
 	
 	# Check if health drops to zero
@@ -33,13 +39,22 @@ func take_damage(damage: int):
 		die()
 
 func flash_damage():
-	# Temporarily flash dark red color
-	body_mesh.set_surface_override_material(0, damage_color)
+	# Override the entire mesh material in one shot
+	body_mesh.material_override = damage_color
 	
-	# Revert back after 0.3 seconds
-	await get_tree().create_timer(0.3).timeout
-	body_mesh.set_surface_override_material(0, original_material)
-	
+	# Smoothly fade back to normal color
+	await get_tree().create_timer(0.1).timeout
+	body_mesh.material_override = null  # Resets back to normal
+
 func die():
-	# Despawn the enemy when dead
+	# Enable transparency on the mesh
+	body_mesh.material_override = body_mesh.get_active_material(0).duplicate()
+	body_mesh.material_override.transparency = true
+	
+	# Fade the alpha channel of the mesh
+	var tween = get_tree().create_tween()
+	tween.tween_property(body_mesh.material_override, "albedo_color:a", 0.0, death_fade_speed)
+	
+	# Wait for fade to complete, then despawn
+	await tween.finished
 	queue_free()

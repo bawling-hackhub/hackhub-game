@@ -1,12 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsm0g2iws6dkx"]
 
 [ext_resource type="Script" uid="uid://ckcn10ws6806i" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="ArrayMesh" uid="uid://dehfhbey6l4x0" path="res://assets/GodotFPS-Assets/Models/Octocat.obj" id="2_md0e3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p1mj"]
-albedo_color = Color(0.996078, 0, 0.0313726, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_md0e3"]
-material = SubResource("StandardMaterial3D_7p1mj")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md0e3"]
+albedo_color = Color(0.545098, 0, 1, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4ra3w"]
 
@@ -52,9 +50,40 @@ _data = {
 script = ExtResource("1_7p1mj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_md0e3")
+transform = Transform3D(0.174071, 0, 0, 0, 0.174071, 0, 0, 0, 0.174071, -0.67329, 0.00682247, 0.635408)
+mesh = ExtResource("2_md0e3")
+surface_material_override/0 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/1 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/2 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/3 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/4 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/5 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/6 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/7 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/8 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/9 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/10 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/11 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/12 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/13 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/14 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/15 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/16 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/17 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/18 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/19 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/20 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/21 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/22 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/23 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/24 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/25 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/26 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/27 = SubResource("StandardMaterial3D_md0e3")
+surface_material_override/28 = SubResource("StandardMaterial3D_md0e3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.264, 0, 0, 0, 1.264, 0, 0, 0, 1.264, 0, 0.176182, 0)
 shape = SubResource("CapsuleShape3D_4ra3w")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
