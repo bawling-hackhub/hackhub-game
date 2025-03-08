@@ -46,6 +46,10 @@ transform = Transform3D(-0.777211, 0, 1.97037e-06, 0, 0.777211, 0, -1.97037e-06,
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
+[node name="Score" type="Label3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18824, 1.36608, -2.03188)
+text = "SCORE: 10"
+
 [node name="Crosshair" type="MeshInstance3D" parent="Head/Camera3D"]
 transform = Transform3D(0.112442, 0, 0, 0, 0.112442, 0, 0, 0, 0.112442, 0, 0, 0)
 mesh = SubResource("QuadMesh_qlg0r")

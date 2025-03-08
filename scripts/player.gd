@@ -12,6 +12,7 @@ const GRAVITY := 20.0  # Define gravity as a constant
 @onready var standing_collision_shape = $StandCollisionShape
 @onready var crouching_collision_shape = $CrouchCollisionShape
 @onready var raycast = $RayCast3D
+@onready var score = $Head/Camera3D/Score
 
 var current_speed := 3.0
 var direction := Vector3.ZERO
@@ -67,5 +68,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed)
 		velocity.z = move_toward(velocity.z, 0, current_speed)
+	
+	score.text = "Score: " + str(Autoscript.score)
 	
 	move_and_slide()

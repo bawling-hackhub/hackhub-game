@@ -5,7 +5,7 @@ extends CharacterBody3D
 @onready var original_material = body_mesh.get_surface_override_material(0)
 
 const SPEED = 3.0
-var health := 5
+var health := 1
 var damage_color := preload("res://dark_red_material.tres")
 var death_fade_speed := 1.5
 
@@ -36,6 +36,7 @@ func take_damage(damage: int):
 	
 	# Check if health drops to zero
 	if health <= 0:
+		Autoscript.score +=1
 		die()
 
 func flash_damage():

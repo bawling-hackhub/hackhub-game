@@ -15,6 +15,10 @@ run/main_scene="uid://dxfcac11v30te"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+Autoscript="*res://scripts/autoscript.gd"
+
 [filesystem]
 
 import/blender/enabled=false
