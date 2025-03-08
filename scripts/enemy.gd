@@ -5,9 +5,8 @@ extends CharacterBody3D
 @onready var original_material = body_mesh.get_surface_override_material(0)
 
 const SPEED = 3.0
-var health := 5
+var health := 3
 var damage_color := preload("res://dark_red_material.tres")
-var death_fade_speed := 1.5
 
 func _physics_process(delta: float) -> void:
 	# Move the enemy toward the player
@@ -48,4 +47,8 @@ func flash_damage():
 	body_mesh.material_override = null  # Resets back to normal
 
 func die():
+<<<<<<< HEAD
+=======
+	# 💀💨 Instant Disappear - No fade, no shrink, just GONE.
+>>>>>>> 5bb99fe55de78a2885ceaa873ac7bbd858dd578b
 	queue_free()
