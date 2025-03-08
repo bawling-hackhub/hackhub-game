@@ -47,8 +47,4 @@ func flash_damage():
 	body_mesh.material_override = null  # Resets back to normal
 
 func die():
-<<<<<<< HEAD
-=======
-	# 💀💨 Instant Disappear - No fade, no shrink, just GONE.
->>>>>>> 5bb99fe55de78a2885ceaa873ac7bbd858dd578b
 	queue_free()
