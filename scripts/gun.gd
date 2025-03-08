@@ -9,7 +9,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and ammo > 0 and not animation_player.is_playing():
 		shoot()
 		
-	if (Input.is_action_just_pressed("reload") or ammo <= 0) and not animation_player.is_playing():
+	if (Input.is_action_just_pressed("reload") or ammo <= 0) and not animation_player.is_playing() and ammo!=6: 
 		animation_player.play("reload")
 		# Automatically trigger a reload when animation is done
 		animation_player.animation_finished.connect(_on_reload_finished, CONNECT_ONE_SHOT)
