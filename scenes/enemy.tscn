@@ -138,10 +138,10 @@ tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.6, 1, 1.4, 1.735, 1.925, 2.3, 2.6, 2.9, 3.3, 3.8, 4.2, 4.67, 4.95, 5.22, 5.67, 6.1, 6.4, 6.55, 7, 7.27, 7.58, 8, 8.15, 8.46, 8.61, 8.87, 9.29, 9.614, 9.9, 10.17, 10.33, 10.77, 11.2, 11.64, 12.25, 12.75, 13.08, 13.57, 14.2, 14.8333, 15.4, 16.2, 16.88, 17.4667, 18.33, 20.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.2, 0.6, 1, 1.4, 1.735, 1.925, 2.3, 2.6, 2.9, 3.3, 3.8, 4.2, 4.67, 4.95, 5.22, 5.67, 6.1, 6.4, 6.55, 7, 7.27, 7.58, 8, 8.15, 8.46, 8.61, 8.87, 9.29, 9.614, 9.9, 10.17, 10.33, 10.77, 11.2, 11.64, 12.25, 12.75, 13.08, 13.57, 14.2, 14.8333, 15.4, 16.2, 16.88, 17.4667, 18.19, 18.33, 18.63, 18.9333, 19.46, 19.65, 20.1, 20.48, 20.7667, 21, 21.25, 21.81, 22.46, 22.84, 23.5, 23.875, 24.75, 25.61),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
+"values": [true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ra3w"]
