@@ -51,14 +51,20 @@ func flash_damage():
 	body_mesh.material_override = null  # Resets back to normal
 
 func die():
+	# Capture the position of the enemy BEFORE removing it
+	var death_position = global_position
+	
 	# Spawn 2 new enemies instantly
 	for i in range(2):
 		var new_enemy = enemy_scene.instantiate()
-		new_enemy.global_position = global_position + Vector3(randf_range(-2, 2), 0, randf_range(-2, 2))
+		new_enemy.global_position = death_position + Vector3(randf_range(-2, 2), 0, randf_range(-2, 2))
 		get_parent().add_child(new_enemy)
 		new_enemy.sync_animation_with_song(audio_player)
 
+	# Now safely remove this enemy
 	queue_free()
+
+
 
 func sync_animation_with_song(audio_stream):
 	# 🔥 Get the current song time in seconds
