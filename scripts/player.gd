@@ -3,7 +3,7 @@ extends CharacterBody3D
 const SPRINT_SPEED := 7.0
 const WALK_SPEED := 4.0
 const CROUCH_SPEED := 2.0
-const JUMP_VELOCITY := 7
+const JUMP_VELOCITY := 9
 const MOUSE_SENS := 0.2
 const LERP_SPEED := 10.0
 const GRAVITY := 20.0  # Define gravity as a constant
@@ -86,6 +86,8 @@ func take_damage():
 	$Timer.start(2);
 	
 	if(health == 0):
+		Autoscript.ammo = 6
+		Autoscript.score = 0
 		$"../CanvasLayer/DeathMenu".turn_on()
 
 func is_dead():

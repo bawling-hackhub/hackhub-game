@@ -142,7 +142,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.561
 size = Vector3(1.7207, 42, 100.9)
 
 [node name="Backgroiund wall4" type="CSGBox3D" parent="CSGCombiner3D/backgrond walls"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.5619, 0, -46.0733)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 46.5619, 0, -44.626)
 size = Vector3(1.7207, 42, 100.9)
 
 [node name="Ramps" type="CSGCombiner3D" parent="CSGCombiner3D"]

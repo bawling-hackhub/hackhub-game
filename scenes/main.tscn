@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://br4a8jdncrv1y" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://jqqxomkxodbl" path="res://scenes/level.tscn" id="2_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bsm0g2iws6dkx" path="res://scenes/enemy.tscn" id="4_jyhfs"]
-[ext_resource type="AudioStream" uid="uid://ckuhpvo2gc6j7" path="res://assets/Doom Eternal OST - The Only Thing They Fear Is You (Mick Gordon) [Doom Eternal Theme].wav" id="5_tefeu"]
+[ext_resource type="AudioStream" uid="uid://ckuhpvo2gc6j7" path="res://assets/Doom Eternal OST - The Only Thing They Fear Is You (Mick Gordon) [Doom Eternal Theme].wav" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dvidvmhgjm0ec" path="res://scenes/deathMenu.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://lnkcu361ilna" path="res://scenes/pauseMenu.tscn" id="6_tefeu"]
 
@@ -63,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.12345, 8.60732, 18.2557)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4664, 5.52478, 1.91267)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_tefeu")
+stream = ExtResource("5_o6xl0")
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
