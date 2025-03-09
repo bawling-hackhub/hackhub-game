@@ -7,11 +7,14 @@ extends CharacterBody3D
 @onready var animation_player = $AnimationPlayer
 @onready var audio_player = $"../AudioStreamPlayer"
 @onready var death_sound = $AudioStreamPlayer3D
+@onready var ray = $RayCast3D
 
 const SPEED = 3.0
 var health := 3
 var damage_color := preload("res://dark_red_material.tres")
 var enemy_scene = preload("res://scenes/enemy.tscn")
+
+
 
 func _physics_process(delta: float) -> void:
 	# Move the enemy toward the player
@@ -24,6 +27,11 @@ func _physics_process(delta: float) -> void:
 	if current_location.distance_to(next_location) > 0.1:
 		look_at(Vector3(next_location.x, global_position.y, next_location.z))
 		rotate_y(deg_to_rad(180)) # Corrects the backwards mesh
+	
+	if(ray.is_colliding()):
+		var obj = ray.get_collider();
+		if obj.get_name() == "Player":
+			obj.take_damage()
 
 func update_target_location(target_location):
 	nav_agent.target_position = target_location

@@ -8,16 +8,20 @@ const MOUSE_SENS := 0.2
 const LERP_SPEED := 10.0
 const GRAVITY := 20.0  # Define gravity as a constant
 
+var health := 100
+
 @onready var head = $Head
 @onready var standing_collision_shape = $StandCollisionShape
 @onready var crouching_collision_shape = $CrouchCollisionShape
 @onready var raycast = $RayCast3D
 @onready var score = $Head/Camera3D/Score
+@onready var healthtext = $Head/Camera3D/Health
 
 var current_speed := 3.0
 var direction := Vector3.ZERO
 var CROUCHING_DEPTH := -0.5
 var is_paused := false
+var can_take_damage := true
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -70,6 +74,18 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, current_speed)
 	
 	score.text = "Score: " + str(Autoscript.score)
-
-
 	move_and_slide()
+	
+func take_damage():
+	if(!can_take_damage): return
+	health -= 20
+	health = clamp(health, 0, 100)
+	healthtext.text = "Health: " + str(health)
+	can_take_damage = false
+	$Timer.start(2);
+	
+	if(health == 0):
+		pass
+
+func _on_timer_timeout() -> void:
+	can_take_damage = true

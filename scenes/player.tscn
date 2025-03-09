@@ -50,6 +50,10 @@ transform = Transform3D(-0.777211, 0, 1.97037e-06, 0, 0.777211, 0, -1.97037e-06,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18824, 1.36608, -2.03188)
 text = "SCORE: 10"
 
+[node name="Health" type="Label3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18402, 1.36608, -2.03188)
+text = "Health: 100"
+
 [node name="Ammo" type="Label3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38643, 1.36608, -2.03188)
 text = "6 / ∞"
@@ -60,3 +64,7 @@ mesh = SubResource("QuadMesh_qlg0r")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 1, 0)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

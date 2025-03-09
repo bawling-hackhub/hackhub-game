@@ -217,4 +217,7 @@ autoplay = "DOOM"
 stream = ExtResource("3_4ra3w")
 volume_db = 50.958
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 1.5)
+
 [connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]
