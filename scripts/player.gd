@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPRINT_SPEED := 6.0
+const SPRINT_SPEED := 7.0
 const WALK_SPEED := 4.0
 const CROUCH_SPEED := 2.0
 const JUMP_VELOCITY := 7
@@ -82,10 +82,12 @@ func take_damage():
 	health = clamp(health, 0, 100)
 	healthtext.text = "Health: " + str(health)
 	can_take_damage = false
+	$Head/Camera3D.apply_shake()
 	$Timer.start(2);
 	
 	if(health == 0):
-		pass
+		get_tree().paused = false
+		get_tree().reload_current_scene()
 
 func _on_timer_timeout() -> void:
 	can_take_damage = true

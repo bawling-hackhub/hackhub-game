@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://br4a8jdncrv1y"]
+[gd_scene load_steps=12 format=3 uid="uid://br4a8jdncrv1y"]
 
 [ext_resource type="Script" uid="uid://chvi4ipnuql2y" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://mxlu4aqxukrw" path="res://scenes/Gun.tscn" id="2_g2els"]
+[ext_resource type="Script" uid="uid://bx4rfvwem50mw" path="res://scripts/camera_3d.gd" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://danrog2h7p2c3" path="res://assets/GodotFPS-Assets/UI/Crosshair.png" id="3_qhqgy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vyb7"]
@@ -14,6 +15,9 @@ material = SubResource("StandardMaterial3D_3vyb7")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 height = 1.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qlg0r"]
+dof_blur_amount = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
 transparency = 1
@@ -45,6 +49,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 transform = Transform3D(-0.777211, 0, 1.97037e-06, 0, 0.777211, 0, -1.97037e-06, 0, -0.777212, 0.395919, -0.563129, -0.949694)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+attributes = SubResource("CameraAttributesPractical_qlg0r")
+script = ExtResource("3_dqkch")
 
 [node name="Score" type="Label3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18824, 1.36608, -2.03188)
