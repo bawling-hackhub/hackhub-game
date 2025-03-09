@@ -11,7 +11,7 @@ func pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ESC"):
+	if Input.is_action_just_pressed("ESC") and !$"../../Player".is_dead():
 		if !get_tree().paused:
 			pause()
 		else:

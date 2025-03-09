@@ -86,8 +86,10 @@ func take_damage():
 	$Timer.start(2);
 	
 	if(health == 0):
-		get_tree().paused = false
-		get_tree().reload_current_scene()
+		$"../CanvasLayer/DeathMenu".turn_on()
+
+func is_dead():
+	return health <= 0;
 
 func _on_timer_timeout() -> void:
 	can_take_damage = true
